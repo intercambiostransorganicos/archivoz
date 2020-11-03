@@ -1,42 +1,32 @@
-import React, {useState} from "react";
-import { Hidden, makeStyles } from "@material-ui/core";
+import React, { useState } from "react";
+import clsx from "clsx";
 import Navbar from "./Navbar";
-import Draw from "./Draw";
 import { BoxContent } from "./BoxContent";
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: "flex",
-  },
-  toolbar: theme.mixins.toolbar,
-  content: {
-    flexGrow: 1,
-    backgroundColor: theme.palette.background.default,
-    padding: theme.spacing(3),
-  },
-}));
+import useStyles from "../hooks/useStyle";
 
 const Container = () => {
   const classes = useStyles();
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = React.useState(false);
 
-  const actionOpen = () =>{
-    setOpen(!open)
-  }
+  const handleDrawerOpen = () => {
+    setOpen(true);
+  };
+
+  const handleDrawerClose = () => {
+    setOpen(false);
+  };
 
   return (
     <div className={classes.root}>
-      <Navbar actionOpen={actionOpen} />
-      <Hidden xsDown>
-        <Draw variant="permanent" open={true} />
-      </Hidden>
-      <Hidden smUp>
-        <Draw variant="temporary" open={open} onClose={actionOpen} />
-      </Hidden>
+      <Navbar open={open} handleDrawerOpen={handleDrawerOpen} handleDrawerClose={handleDrawerClose}   />
 
-      <div className={classes.content}>
+      <div
+        className={clsx(classes.content, {
+          [classes.contentShift]: open,
+        })}
+      >
         <div className={classes.toolbar}></div>
-        <BoxContent />
+        <BoxContent className={classes.content} />
       </div>
     </div>
   );
