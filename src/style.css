@@ -1,0 +1,12 @@
+.jumbotron {
+  background: rgb(109, 255, 168);
+  background: linear-gradient(rgba(129, 252, 179, 1) 0%, rgba(128, 0, 128, 1) 100%);
+}
+
+.navbar{
+  background-color: rgba(109, 255, 168, 1);
+}
+
+.navbar-brand, .nav-link{
+  color: black !important;
+}
