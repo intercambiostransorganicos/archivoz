@@ -10,3 +10,25 @@
 .navbar-brand, .nav-link{
   color: black !important;
 }
+
+.navbar-toggler{
+  background-color: black !important;
+}
+
+.miSvg{
+    width: 100px;
+    transition: 1s;
+}
+
+.miSvg:hover{
+    width: 150px;
+}
+
+.sound{
+  fill: rgba(41, 40, 40, 1);
+  transition: 1s;
+}
+
+.sound:hover{
+  fill: black;
+}
