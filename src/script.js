@@ -50,6 +50,7 @@ class Sonido {
     clicked(px, py) {
         if ((px > this.x && px < this.x + this.largo) && (py > this.y && py < this.y + this.ancho)) {
             this.ancho = 40;
+            window.location.href = "src/tts/tts.html";
 
             if (!trigger) {
                 audio.play()

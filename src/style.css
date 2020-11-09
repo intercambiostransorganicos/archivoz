@@ -6,6 +6,7 @@
   background: rgb(109, 255, 168);
   background: linear-gradient(rgba(129, 252, 179, 1) 0%, rgba(128, 0, 128, 1) 100%);
   border-radius: 0 !important;
+  height: 100vh;
 }
 
 .navbar{
@@ -42,5 +43,23 @@
   padding-right: 10px;
   border-right: 1px solid rgb(0, 0, 0);
 }
+
+textarea {
+  resize: none;
+  background: rgb(132, 190, 167);
+  background: linear-gradient(rgba(132, 190, 167, 1) 0%, rgba(131, 166, 162, 1) 100%);
+  border: solid 1px  rgb(114, 145, 141) !important;
+  color: black !important;
+}
+
+textarea::-webkit-input-placeholder {
+  color: rgb(66, 66, 66) !important;
+}
+
+.btn{
+  background-color: rgb(143, 42, 238) !important;
+  border: none;
+}
+
 
 
