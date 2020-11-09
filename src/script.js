@@ -3,6 +3,7 @@ let numSounds = 10;
 let sonidos = [];
 let audio;
 let trigger = false;
+let miOff = 0;
 
 function preload() {
     miSvg = loadImage("../assets/sound.svg");
@@ -11,15 +12,16 @@ function preload() {
 }
 
 function setup() {
-    let cnv = createCanvas(windowWidth * 0.92, windowHeight * 0.55)
+    let cnv = createCanvas(windowWidth * 0.92, windowHeight*0.6)
     cnv.parent('jumbo-canvas')
 
     for (let i = 0; i < numSounds; i++) {
         let x = random(width - 140)
         let y = random(height)
+        miOff += 10;
         let ancho = 140
         let largo = 20
-        let s = new Sonido(x, y, ancho, largo)
+        let s = new Sonido(x, y, ancho, largo,miOff)
         sonidos.push(s)
     }
 }
@@ -38,7 +40,7 @@ function draw() {
 }
 
 class Sonido {
-    constructor(x, y, largo, ancho) {
+    constructor(x, y, largo, ancho,off) {
         this.x = x;
         this.y = y;
         this.largo = largo;
