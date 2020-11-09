@@ -7,7 +7,7 @@ let trigger = false;
 function preload() {
     miSvg = loadImage("../assets/sound.svg");
     audio = loadSound("../assets/voz.mp3")
-     audio.playMode('restart')
+    audio.playMode('restart')
 }
 
 function setup() {
@@ -26,7 +26,7 @@ function setup() {
 
 function mousePressed() {
     for (let i = 0; i < sonidos.length; i++) {
-
+        sonidos[i].clicked(mouseX, mouseY)
     }
 }
 
@@ -34,7 +34,6 @@ function draw() {
     clear()
     for (let i = 0; i < sonidos.length; i++) {
         sonidos[i].display()
-        sonidos[i].clicked(mouseX, mouseY)
     }
 }
 
@@ -50,16 +49,15 @@ class Sonido {
         if ((px > this.x && px < this.x + this.largo) && (py > this.y && py < this.y + this.ancho)) {
             this.ancho = 40;
 
-           if(!trigger){
-            audio.play()
-            trigger = true
-           } else {
-            audio.stop()
-            trigger = false
-           }
-
+            if (!trigger) {
+                audio.play()
+                trigger = true
+            } else {
+                audio.stop()
+            }
         } else {
             this.ancho = 20
+            trigger = false
         }
     }
 
